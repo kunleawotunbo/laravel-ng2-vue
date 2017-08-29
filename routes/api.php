@@ -48,3 +48,13 @@ Route::post('/user', [
 Route::post('/user/signin', [
     'uses' => 'UserController@signin'
 ]);
+
+// Webhook for PayStack 
+Route::post('/webhook/handlePaymentHook', [
+    'uses' => 'PayStackWebHookController@handlePaymentHook'
+]);
+
+// Webhook for PayStack 
+Route::get('/transaction/verify/{transactionRef}', [
+    'uses' => 'PayStackWebHookController@verifyTransaction'
+]);
